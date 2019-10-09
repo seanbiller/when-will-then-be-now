@@ -17,7 +17,10 @@ function filterLogsOnDate(logs, dateFilter) {
   logs.forEach((log) => {
     const timestampDate = new Date(log.timestamp)
 
-    if (parsedDateFilter.getUTCDate() === timestampDate.getUTCDate()) {
+    if (parsedDateFilter.getUTCDay() === timestampDate.getUTCDay() &&
+      parsedDateFilter.getUTCDate() === timestampDate.getUTCDate()   && 
+      parsedDateFilter.getUTCFullYear() === timestampDate.getUTCFullYear())
+    {
       filteredLogs.push(log)
     }
   })
